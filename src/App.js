@@ -1,15 +1,31 @@
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Login } from "./components/Login";
+import { Register } from "./components/Register";
+import { Home } from "./components/Home";
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AuthProvider } from "./context/authContext";
 import {Button} from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Hello World</h1>
-        <Button>Aceptar</Button>
-      </header>
+    <div className="bg-slate text-black h-screen flex text-black">
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }
 
-export default App;
+export default App; 
