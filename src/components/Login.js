@@ -7,6 +7,10 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
+import Button from 'react-bootstrap/Button';
+import '../css/App.css';
+
+//Vista Completada 
 
 export function Login() {
   const [user, setUser] = useState({
@@ -52,11 +56,12 @@ export function Login() {
   };
 
   return (
-    <div className="bg-slate-100 w-full max-w-xs m-auto">
+    <div className="f">
+      <div className="l">
       {error && <Alert message={error} />}
       <form
         onSubmit={handleSubmit}
-        className="bg-gray shadow-md rounded px-4 pt-3 pb-4 mb-2 shadow rounded border-2"
+        className="bg-gray px-4 pt-3 pb-2 mb-2 border-16"
       >
         <div className="mb-4">
           <label className="block text-black-700 text-sm font-bold mb-2">
@@ -69,43 +74,46 @@ export function Login() {
             htmlFor="email"
             className="block text-gray-700 text-sm font-bold mb-2"
           >
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
             Email
           </label>
+          <FontAwesomeIcon icon={faUser} className=""></FontAwesomeIcon>
+          &nbsp;&nbsp;
           <input
             type="email"
             name="email"
             id="email"
             onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="youremail@gmail.com"
           />
-          <p>
-          </p>
+          <p></p>
           <div className="mb-4">
             <label
               htmlFor="password"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
-              <FontAwesomeIcon icon={faKey}></FontAwesomeIcon>
               Password
             </label>
+            <FontAwesomeIcon icon={faKey}></FontAwesomeIcon>
+            &nbsp;&nbsp;
             <input
               type="password"
               name="password"
               id="password"
               onChange={handleChange}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="*************"
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            <Button
+              variant="dark"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px- 
+            rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Sign In
-            </button>
+              Login
+            </Button>
             <a
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
               href="#!"
@@ -113,16 +121,27 @@ export function Login() {
             >
               Forgot Password?
             </a>
+            <label>
+              <FontAwesomeIcon icon={faCircleExclamation}>
+              </FontAwesomeIcon>
+            </label>
           </div>
-          <p>
-          </p>
-          <button
-            onClick={handleGoogleSignin}
-            className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 w-full"
-          >
-            <FontAwesomeIcon icon={faEarthAmericas}></FontAwesomeIcon>
-            Google login
-          </button>
+          <p></p>
+          <center>
+            <button
+              onClick={handleGoogleSignin}
+              className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 "
+            >
+              <label className="">
+                <FontAwesomeIcon icon={faEarthAmericas}></FontAwesomeIcon>
+              </label>
+              &nbsp; Sign in With Google
+            </button>
+            &nbsp; &nbsp;
+            <label>
+              <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
+            </label>
+          </center>
           <p className="my-4 text-sm flex justify-between px-3">
             Don't have an account?
             <Link to="/register" className="text-blue-700 hover:text-blue-900">
@@ -132,5 +151,8 @@ export function Login() {
         </div>
       </form>
     </div>
+    </div>
+    
   );
+  
 }

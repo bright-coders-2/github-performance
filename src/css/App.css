@@ -1,0 +1,181 @@
+.login {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  background: #2c2c2c;
+  display: flex;
+}
+
+.login .loginContainer {
+  padding: 60px;
+  margin: auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at left bottom,
+      rgba(22, 24, 47, 1) 0%,
+      rgba(38, 20, 72, 0.9) 59%,
+      rgba(17, 27, 75, 0.9) 100%);
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+}
+
+.login .loginContainer label {
+  color: white;
+  margin: 14px 0;
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.login .loginContainer input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 19px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.login .loginContainer .btnContainer {
+  width: 100%;
+  padding: 24px 0;
+}
+
+.login .loginContainer .btnContainer p {
+  margin: 14px 0 0 0;
+  text-align: right;
+  color: #fff;
+}
+
+.login .loginContainer .btnContainer p span {
+  color: yellow;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.login .loginContainer .btnContainer p span:hover {
+  color: red;
+}
+
+.login .loginContainer .errorMsg {
+  color: red;
+  font-size: 16px;
+}
+
+/*Para cambiar el color de fondo del home*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0039a6;
+}
+
+.hero nav {
+  background-color: #282828;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*Para cambiar el color del texto Welcome*/
+.hero nav h2 {
+  color: whitesmoke;
+}
+
+.hero nav button {
+  width: auto;
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #ffeb00;
+}
+
+.hero nav button:hover {
+  transition: ease 2s;
+  background-color: #ffeb00;
+}
+
+.hero nav button a {
+  color: #282828;
+  text-decoration: none;
+}
+
+.hero nav button a:hover {
+  color: #3a2b58;
+}
+
+h1 {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-family: sans-serif !important;
+  color: blanchedalmond !important;
+}
+
+.l{
+  margin: auto;
+  padding: auto;
+  background-color: #ffeb00;
+}
+
+.f{
+  width: 150%;
+  min-height: 150vh;
+  padding: 0 20px;
+  background-color: #282828;
+  display: flex;
+}
+
+.ff{
+  width: 150%;
+  min-height: 150vh;
+  padding: 0 20px;
+  background-color: #282828;
+  display: flex;
+}
+
+.ll{
+  margin: auto;
+  padding: auto;
+  background-color: #5eefb1;
+}
+
+.h4{
+  color: #282828;
+}
+
+.fondomenu{
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  background-color: #282828;
+}
+
+.contenedorusuario{
+  margin: auto;
+  padding: auto;
+  background-color: #ffeb00;
+}
+
+.containermenu{
+  display: flex;
+  justify-content: center;
+}
+
+.containeruser  {
+  position: relative;
+  top: 5%;
+}
+
