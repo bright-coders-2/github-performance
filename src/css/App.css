@@ -179,3 +179,9 @@ h5 {
   top: 5%;
 }
 
+.btnlogout {
+  background: #ffeb00;
+  background-color: #ffeb00;
+  padding-left: 5px;
+  padding-right: 5px;
+}
