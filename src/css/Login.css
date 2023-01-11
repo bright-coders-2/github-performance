@@ -1,0 +1,15 @@
+/*Para cambiar el color del  y su estructura */
+.l{
+    margin: auto;
+    padding: auto;
+    background-color: #ffeb00;
+  }
+  
+/*Para cambiar el color del fondo y su estructura */
+  .f{
+    width: 150%;
+    min-height: 150vh;
+    padding: 0 20px;
+    background-color: #282828;
+    display: flex;
+  }

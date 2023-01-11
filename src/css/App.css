@@ -78,6 +78,10 @@
   background-color: #0039a6;
 }
 
+<<<<<<< Updated upstream
+=======
+/*Para cambiar el color del navbar*/
+>>>>>>> Stashed changes
 .hero nav {
   background-color: #282828;
   width: 100%;
@@ -92,6 +96,10 @@
   color: whitesmoke;
 }
 
+<<<<<<< Updated upstream
+=======
+/*Para cambiar el color del boton de login*/
+>>>>>>> Stashed changes
 .hero nav button {
   width: auto;
   padding: 10px;
@@ -185,3 +193,16 @@ h5 {
   padding-left: 5px;
   padding-right: 5px;
 }
+<<<<<<< Updated upstream
+=======
+
+.btnwelcome{
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #ffeb00;
+  border-radius: 6px;
+  background: #ffeb00;
+  border: 2px;
+}
+>>>>>>> Stashed changes

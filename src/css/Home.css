@@ -1,0 +1,29 @@
+.fondomenu{
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 20px;
+    background-color: #282828;
+  }
+  
+  .contenedorusuario{
+    margin: auto;
+    padding: auto;
+    background-color: #ffeb00;
+  }
+  
+  .containermenu{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .containeruser  {
+    position: relative;
+    top: 5%;
+  }
+  
+  .btnlogout {
+    background: #ffeb00;
+    background-color: #ffeb00;
+    padding-left: 5px;
+    padding-right: 5px;
+  }

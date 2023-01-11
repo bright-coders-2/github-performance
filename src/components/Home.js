@@ -10,7 +10,11 @@ import { faCircleStop } from "@fortawesome/free-solid-svg-icons";
 import r from "../img/user.png";
 import re from "../img/repositories.png";
 import ref from "../img/reports.png";
+<<<<<<< Updated upstream
 import "../css/App.css";
+=======
+import "../css/Home.css";
+>>>>>>> Stashed changes
 import styled from "styled-components";
 import { Overlay } from "react-bootstrap";
 

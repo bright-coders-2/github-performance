@@ -1,4 +1,8 @@
 import { useAuth } from "../context/authContext";
+<<<<<<< Updated upstream
+=======
+import { Link, useNavigate } from "react-router-dom";
+>>>>>>> Stashed changes
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
@@ -8,12 +12,22 @@ import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleStop } from "@fortawesome/free-solid-svg-icons";
 import r from "../img/user.png";
+<<<<<<< Updated upstream
 import re from "../img/repositories.png";
 import ref from "../img/reports.png";
 
 export function Repositories() {
   const { logout, user } = useAuth();
 
+=======
+import '../css/App.css';
+import SearchBar from "../subcomponents/SearchBar";
+import Results from "../subcomponents/Results";
+
+
+export function Repositories() {
+  const { logout, user } = useAuth();
+>>>>>>> Stashed changes
   console.log(user);
   const handleLogout = async () => {
     try {
@@ -24,6 +38,7 @@ export function Repositories() {
   };
 
   return (
+<<<<<<< Updated upstream
     <div className="text-black">
       <Navbar bg="light" variant="light">
         <Container>
@@ -97,3 +112,38 @@ export function Repositories() {
     </div>
   );
 }
+=======
+    <div className="fondomenu">
+      <div className="containeruser">
+        <div className="flex items-center justify-between">
+          <Navbar bg="light" variant="light">
+            <Container>
+              <img src={r}></img>
+              <h6>
+                Welcome : &nbsp; &nbsp;&nbsp; &nbsp;
+                <button
+                    className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    onClick={handleLogout}>
+                    <h6>Logout</h6>
+                  </button>
+                <p></p>
+                <p>{user.displayName || user.email}</p>
+                <p>
+                  <FontAwesomeIcon icon={faCircleStop}></FontAwesomeIcon> Active
+                </p>
+              </h6>
+              <div className="btnlogout">
+              </div>
+            </Container>
+          </Navbar>
+        </div>
+      </div>
+      <div>
+        <h1>Repo Search</h1>
+        <SearchBar/>
+        <Results/>
+      </div>
+    </div>
+  );
+}
+>>>>>>> Stashed changes

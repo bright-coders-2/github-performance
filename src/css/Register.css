@@ -1,0 +1,14 @@
+.ff{
+    width: 150%;
+    min-height: 150vh;
+    padding: 0 20px;
+    background-color: #282828;
+    display: flex;
+  }
+  
+  .ll{
+    margin: auto;
+    padding: auto;
+    background-color: #5eefb1;
+  }
+  
