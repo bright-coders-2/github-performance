@@ -1,26 +1,25 @@
 import { useAuth } from "../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleStop } from "@fortawesome/free-solid-svg-icons";
 import r from "../img/user.png";
-import '../css/App.css';
 import SearchBar from "../subcomponents/SearchBar";
-import {Table} from 'reactstrap'
-import ReposTable from "../subcomponents/ReposTable";
-
+import Table from "react-bootstrap/Table";
+import "../css/Repositories.css";
+import "../css/App.css"
 
 export function Repositories() {
   const { logout, user } = useAuth();
+
   console.log(user);
+
   const navigate = useNavigate();
+
   const handleLogout = async () => {
-    navigate("/Login");
+    navigate("/login");
   };
 
   return (
@@ -33,30 +32,48 @@ export function Repositories() {
               <h6>
                 Welcome : &nbsp; &nbsp;&nbsp; &nbsp;
                 <button
-                    className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleLogout}>
-                    <h6>Logout</h6>
-                  </button>
+                  className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={handleLogout}
+                >
+                  <h6>Logout</h6>
+                </button>
                 <p></p>
                 <p>{user.displayName || user.email}</p>
                 <p>
                   <FontAwesomeIcon icon={faCircleStop}></FontAwesomeIcon> Active
                 </p>
               </h6>
-              <div className="btnlogout">
-              </div>
+              <div className="btnlogout"></div>
             </Container>
           </Navbar>
-          <h1>Repo Search</h1>
-          <SearchBar/>
-          <div>
-          <Table>
-            <thead><tr><th>Id</th>
-            <th>Nombre</th>
-            <th>Accciones</th></tr></thead>
-          </Table>
+          <div className="conteinerrepositories">
+            <div className="flex items-center justify-between">
+              <div className="mb-4">
+                <label className="block text-black-700 text-sm font-bold mb-2">
+                  <center>
+                    <h2>Repo Search</h2>
+                  </center>
+                </label>
+                <p></p>
+                <div className="flex items-center justify-between">
+                  <SearchBar />
+                </div>
+                <p></p>
+                <div className="flex items-center justify-between">
+                  <Table striped bordered hover>
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </Table>
+                </div>
+              </div>
+            </div>
           </div>
-          
         </div>
       </div>
     </div>

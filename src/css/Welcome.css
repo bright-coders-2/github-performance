@@ -1,57 +1,49 @@
+/*Luis Chavez Delgado 17460348*/
+/*Maria Guadalupe Cedeño Llanos 17460080*/
+/*Proyecto de Residencia*/
+
+/*Para cambiar el color de fondo de la vista welcome*/
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #0039a6;
+}
+
 /*Para cambiar el color del navbar*/
 .hero nav {
-    background-color: #282828;
-    width: 100%;
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  /*Para cambiar el color del texto Welcome*/
-  .hero nav h2 {
-    color: whitesmoke;
-  }
-  
-  /*Para cambiar el color del boton de login*/
-  .hero nav button {
-    width: auto;
-    padding: 10px;
-    margin-left: 10px;
-    background-color: #ffeb00;
-  }
-  
-  .hero nav button:hover {
-    transition: ease 2s;
-    background-color: #ffeb00;
-  }
-  
-  .hero nav button a {
-    color: #282828;
-    text-decoration: none;
-  }
-  
-  .hero nav button a:hover {
-    color: #3a2b58;
-  }
-  
-  h1 {
-    text-align: center;
-    color: #FFFFFF;
-    margin-bottom: 20px;
-  }
-  
-  h5 {
-    font-family: sans-serif !important;
-    color: blanchedalmond !important;
-  }
+  background-color: #282828;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .btnwelcome{
-    padding: 10px;
-    font-weight: 600;
-    font-size: 20px;
-    background-color: #ffeb00;
-    border-radius: 6px;
-    background: #ffeb00;
-    border: 2px;
-  }
+/*Para cambiar el color del texto Welcome*/
+.hero nav h2 {
+  color: whitesmoke;
+}
+
+/*Para cambiar el color del texto Github Performance*/
+h1 {
+  text-align: center;
+  color: #FFFFFF;
+  margin-bottom: 20px;
+}
+
+/*Para cambiar el color y el tipo de letra en los textos de informacion */
+h5 {
+  font-family: sans-serif !important;
+  color: blanchedalmond !important;
+}
+
+/*Para cambiar las propiedades del color , el tamaño y el bordes del boton*/
+.btnwelcome {
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #ffeb00;
+  border-radius: 6px;
+  background: #ffeb00;
+  border: 2px;
+}

@@ -1,11 +1,11 @@
 //Luis Chavez Delgado 17460348
 //Maria Guadalupe Cedeño Llanos 17460080
-//Proyecto de Residencia 
+//Proyecto de Residencia
 
 //Importamos los componentes que vamos a necesitar para la vista Login
 import React from "react";
 import { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Alert } from "./Alert";
@@ -14,16 +14,14 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
-import Button from 'react-bootstrap/Button';
-import '../css/Login.css';
-
+import Button from "react-bootstrap/Button";
+import "../css/Login.css";
+import { async } from "@firebase/util";
 
 //Exportamos la funcion Login
 
-export function  Login() {
-
-
-   //Activamos una variable constante para obtener el email y el password para iniciar sesioon
+export function Login() {
+  //Activamos una variable constante para obtener el email y el password para iniciar sesioon
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -32,26 +30,26 @@ export function  Login() {
   //Activamos variable constante para las acciones de login , login con google y resetear el password
   const { login, loginWithGoogle, resetPassword } = useAuth();
 
-  //Activamos variable constante para en caso de que nos marque error la aplicacion en alguna accion 
+  //Activamos variable constante para en caso de que nos marque error la aplicacion en alguna accion
   const [error, setError] = useState("");
 
   //Biblioteca popular para realizar enrutamiento y navegación en una aplicación React Native
   const navigate = useNavigate();
 
-  //Definimos una variable constante donde se ingresan los datos y esto se comparan con los que estan en 
-  //Firebase y asi se determine que el usuario pueda iniciar sesion 
+  //Definimos una variable constante donde se ingresan los datos y esto se comparan con los que estan en
+  //Firebase y asi se determine que el usuario pueda iniciar sesion
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await login(user.email, user.password);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       setError(error.message);
     }
   };
 
-  //Esta constante nos sirve para obtener los datos de inicion de sesion y mediante el handlesubmit se determine 
+  //Esta constante nos sirve para obtener los datos de inicion de sesion y mediante el handlesubmit se determine
   //si el usuario puede iniciar sesion si este esta registrado
   const handleChange = ({ target: { value, name } }) =>
     setUser({ ...user, [name]: value });
@@ -61,15 +59,15 @@ export function  Login() {
   const handleGoogleSignin = async () => {
     try {
       await loginWithGoogle();
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       setError(error.message);
     }
   };
 
-  //Esta constante handleResetPassword nos permite hacer una funcion en la que en el caso de que el usuairio 
+  //Esta constante handleResetPassword nos permite hacer una funcion en la que en el caso de que el usuairio
   //Olvidase su contrase , se restaure mediante el cambio de contraseña
-  const handleResetPassword = async (e) => {
+ /* const handleResetPassword = async (e) => {
     e.preventDefault();
     if (!user.email) return setError("Write an email to reset password");
     try {
@@ -79,15 +77,24 @@ export function  Login() {
       setError(error.message);
     }
   };
+*/
 
-  //Retorna las acciones de la funcion Login  
+const handleResetPassword=async(e)=>{
+  navigate("/forgotpassword")
+}
+
+  const regresar = async (e) => {
+    navigate("/");
+  };
+
+  //Retorna las acciones de la funcion Login
   return (
     <div className="f">
       <div className="l">
         {error && <Alert message={error} />}
         <form
           onSubmit={handleSubmit}
-          className="bg-gray px-4 pt-3 pb-2 mb-2 border-16"
+          className="bg-gray px-4 pt-3 pb-1 mb-1 border-16"
         >
           <div className="mb-4">
             <label className="block text-black-700 text-sm font-bold mb-2">
@@ -148,8 +155,7 @@ export function  Login() {
                 Forgot Password?
               </a>
               <label>
-                <FontAwesomeIcon icon={faCircleExclamation}>
-                </FontAwesomeIcon>
+                <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
               </label>
             </div>
             <p></p>
@@ -179,11 +185,16 @@ export function  Login() {
             </p>
           </div>
         </form>
+        <center>
+          <button
+            className="btnatras bg-slate-50 hover:bg-blue-600 text-white  shadow rounded border-2 border-gray-300 py-2 px-4"
+            onClick={regresar}
+          >
+            Regresar
+          </button>
+        </center>
+        <p></p>
       </div>
-      
     </div>
-    
   );
-  
 }
-

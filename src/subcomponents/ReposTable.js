@@ -9,7 +9,7 @@ const ReposTable =()=>{
         <tr>
           <th>Id</th>
           <th>Nombre</th>
-          <th>Accciones</th>
+          <th>cAcciones</th>
         </tr>
       </thead>
       <tbody>

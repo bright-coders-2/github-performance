@@ -1,26 +1,27 @@
 //Luis Chavez Delgado 17460348
 //Maria Guadalupe Cedeño Llanos 17460080
-//Proyecto de Residencia 
+//Proyecto de Residencia
 
 //Importamos los componentes que vamos a necesitar para la vista Welcome
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import evaluator from "../img/evaluator.jpg";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import "../css/Welcome.css";
+import "../css/App.css"
 
 //Exportamos la funcion Welcome
 export function Welcome() {
   //Biblioteca popular para realizar enrutamiento y navegación en una aplicación React Native
   const navigate = useNavigate();
-  //Variable constante para el login , para el cambio de vusta 
+
+  //Variable constante para el login , para el cambio de vusta
   const Login = async (e) => {
     navigate("/login");
   };
-  //Retorna las acciones de la funcion Welcome 
+
+  //Retorna las acciones de la funcion Welcome
   return (
     <div className="hero">
       <Navbar>
@@ -36,8 +37,12 @@ export function Welcome() {
       <center>
         <h5>
           Register, log in and get the evaluations of your developers based on
-          the information from github
+          the information from github.
         </h5>
+      </center>
+      <p></p>
+      <center>
+        <h5>Click on "Login" to access the functions of the program</h5>
       </center>
       <p></p>
       <center>

@@ -1,0 +1,34 @@
+/*Luis Chavez Delgado 17460348*/
+/*Maria Guadalupe Cedeño Llanos 17460080*/
+/*Proyecto de Residencia*/
+
+.fondomenu{
+    width: 1000%;
+    min-height: 1000vh;
+    position:relative;
+    padding: 0 20px;
+    background-color: #282828;
+  }
+
+  .containeruser  {
+    position: relative;
+    top: 5%;
+  }
+  
+.conteinerrepositories{
+    height: auto;
+    width: auto;
+    justify-self: auto;
+    background-color: white;
+    margin: auto;
+    padding: auto;
+}
+
+.Tabla{
+    background-color: white;
+}
+
+.h2{
+    font-family: sans-serif !important;
+  color:black !important;
+}

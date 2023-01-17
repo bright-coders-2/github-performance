@@ -1,9 +1,7 @@
 import { useAuth } from "../context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleStop } from "@fortawesome/free-solid-svg-icons";
@@ -11,13 +9,12 @@ import r from "../img/user.png";
 import re from "../img/repositories.png";
 import ref from "../img/reports.png";
 import "../css/Home.css";
-import styled from "styled-components";
-import { Overlay } from "react-bootstrap";
 
 export function Home() {
   const { logout, user } = useAuth();
   const navigate = useNavigate();
   console.log(user);
+
   const handleLogout = async () => {
     try {
       await logout();
@@ -26,7 +23,7 @@ export function Home() {
     }
   };
 
-  const repositorios = async (e) => {
+  const repositories = async (e) => {
     navigate("/repositories");
   };
 
@@ -44,18 +41,18 @@ export function Home() {
               <h6>
                 Welcome : &nbsp; &nbsp;&nbsp; &nbsp;
                 <button
-                    className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={handleLogout}>
-                    <h6>Logout</h6>
-                  </button>
+                  className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={handleLogout}
+                >
+                  <h6>Logout</h6>
+                </button>
                 <p></p>
                 <p>{user.displayName || user.email}</p>
                 <p>
                   <FontAwesomeIcon icon={faCircleStop}></FontAwesomeIcon> Active
                 </p>
               </h6>
-              <div className="btnlogout">
-              </div>
+              <div className="btnlogout"></div>
             </Container>
           </Navbar>
         </div>
@@ -71,28 +68,21 @@ export function Home() {
                 </center>
               </label>
               <p></p>
-              <div className="mb-4"></div>
-              <div className="flex items-center justify-between">
+              <div className="mb-4 flex items-center justify-between">
                 <img src={re}></img> &nbsp; &nbsp;
                 <label>Repositories</label> &nbsp; &nbsp;
-                <p>
-                  <button
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    onClick={repositorios}
-                  >
-                    Get in
-                  </button>
-                </p>
-              </div>
-              <p></p>
-              <div className="flex items-center justify-between">
-                <img src={ref}></img>
-                <label>Reports</label>
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  onClick={repositories}
+                >
+                  Get in
+                </button>
+                <img src={ref}></img>&nbsp; &nbsp;
+                <label>Reports</label>&nbsp; &nbsp;
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                   onClick={reports}
                 >
-                  <Link to="/reports"></Link>
                   Get in
                 </button>
               </div>

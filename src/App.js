@@ -1,38 +1,41 @@
+//Importamos los componentes a utilizar en el App.js
+
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Login } from "./components/Login";
 import { Register } from "./components/Register";
 import { Home } from "./components/Home";
 import { Repositories } from "./components/Repositories";
-import { Reports} from "./components/Reports"
+import { Reports} from "./components/Reports";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { AuthProvider } from "./context/authContext";
 import { Welcome } from "./components/Welcome"
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import {ForgotPassword} from "./components/ForgotPassword"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="bg-slate text-black h-screen flex text-black">
       <AuthProvider>
         <Routes>
-        <Route path="/welcome" element={<Welcome></Welcome>}></Route>
+          <Route path="/" element={<Welcome></Welcome>}></Route>
           <Route path="/login" element={<Login />} />
           <Route
-          path="/"
+            path="/home"
             element={
               <ProtectedRoute>
                 <Home />
               </ProtectedRoute>
             }
           />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/register" element={<Register />} />
           <Route path="/repositories" element={<Repositories />} />
-          <Route path="/reports" element={<Reports />} />
+          <Route path="/reports" element={<Reports></Reports>}></Route>
         </Routes>
       </AuthProvider>
     </div>
   );
 }
 
-export default App; 
+export default App;

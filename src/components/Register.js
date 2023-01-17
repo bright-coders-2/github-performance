@@ -3,20 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Alert } from "./Alert";
 import "../css/Register.css";
+import "../css/App.css"
 
 export function Register() {
   const { signup } = useAuth();
   const [user, setUser] = useState({
-    firstname:"",
-    lastname:"",
-    username:"",
     email: "",
     password: "",
-    confirmpassword:"",
   });
 
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -98,7 +97,9 @@ export function Register() {
             </label>
             <input
               type="conffirmpassword"
-              onChange={(e) => setUser({ ...user, confirmpassword: e.target.value })}
+              onChange={(e) =>
+                setUser({ ...user, confirmpassword: e.target.value })
+              }
               className="shadow appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="*************"
             />
