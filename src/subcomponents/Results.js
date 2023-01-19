@@ -10,7 +10,8 @@ const Results = (props) => {
       repos.data.map((item) => (
         <li key={item.id}>
           <a href={item.html_url}>{item.name} </a>
-          <button>Añadir</button>
+          <button className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Añadir</button>
+          
         </li>
       ))
     ) : (

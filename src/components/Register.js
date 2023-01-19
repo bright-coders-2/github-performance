@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Alert } from "./Alert";
 import "../css/Register.css";
-import "../css/App.css"
+import "../css/App.css";
 
 export function Register() {
   const { signup } = useAuth();
@@ -21,7 +21,7 @@ export function Register() {
     setError("");
     try {
       await signup(user.email, user.password);
-      navigate("/");
+      navigate("/login");
     } catch (error) {
       setError(error.message);
     }
@@ -43,6 +43,7 @@ export function Register() {
               FirstName
             </label>
             <input
+              required
               type="firstname"
               onChange={(e) => setUser({ ...user, firstname: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -56,6 +57,7 @@ export function Register() {
               LastName
             </label>
             <input
+              required
               type="lastname"
               onChange={(e) => setUser({ ...user, lastname: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -69,6 +71,7 @@ export function Register() {
               UserName
             </label>
             <input
+              required
               type="username"
               onChange={(e) => setUser({ ...user, username: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -82,10 +85,12 @@ export function Register() {
               Password
             </label>
             <input
+              required
+              maxlength="8"
               type="password"
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="*************"
+              placeholder="********"
             />
           </div>
           <div className="mb-4">
@@ -96,12 +101,14 @@ export function Register() {
               Conffirm Password
             </label>
             <input
-              type="conffirmpassword"
+              required
+              maxlength="8"
+              type="password"
               onChange={(e) =>
                 setUser({ ...user, confirmpassword: e.target.value })
               }
               className="shadow appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              placeholder="*************"
+              placeholder="********"
             />
           </div>
           <div className="mb-4">
@@ -112,6 +119,7 @@ export function Register() {
               Email
             </label>
             <input
+              required
               type="email"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
               className="shadow appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

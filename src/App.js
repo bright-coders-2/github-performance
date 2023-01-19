@@ -20,6 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome></Welcome>}></Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgotpassword" element={<ForgotPassword/>} />
           <Route
             path="/home"
             element={
@@ -28,10 +30,22 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/repositories" element={<Repositories />} />
-          <Route path="/reports" element={<Reports></Reports>}></Route>
+          <Route
+          path="/repositories"
+          element={
+            <ProtectedRoute>
+              <Repositories></Repositories>
+            </ProtectedRoute>
+          }>
+          </Route>
+          <Route
+          path="/reports"
+          element={
+            <ProtectedRoute>
+              <Reports></Reports>
+            </ProtectedRoute>
+          }>
+          </Route>
         </Routes>
       </AuthProvider>
     </div>

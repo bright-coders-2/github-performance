@@ -77,6 +77,8 @@ export function Home() {
                 >
                   Get in
                 </button>
+              </div>
+              <div className=" items-center justify-between">
                 <img src={ref}></img>&nbsp; &nbsp;
                 <label>Reports</label>&nbsp; &nbsp;
                 <button

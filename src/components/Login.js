@@ -16,19 +16,23 @@ import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import "../css/Login.css";
-import { async } from "@firebase/util";
+import styled from "styled-components";
+import Modal from "../subcomponents/Modal";
 
 //Exportamos la funcion Login
 
 export function Login() {
   //Activamos una variable constante para obtener el email y el password para iniciar sesioon
+
+  const [EstadoModal, CambiarEstadoModal] = useState(false);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   //Activamos variable constante para las acciones de login , login con google y resetear el password
-  const { login, loginWithGoogle, resetPassword } = useAuth();
+  const { login, loginWithGoogle } = useAuth();
 
   //Activamos variable constante para en caso de que nos marque error la aplicacion en alguna accion
   const [error, setError] = useState("");
@@ -67,7 +71,7 @@ export function Login() {
 
   //Esta constante handleResetPassword nos permite hacer una funcion en la que en el caso de que el usuairio
   //Olvidase su contrase , se restaure mediante el cambio de contraseña
- /* const handleResetPassword = async (e) => {
+  /* const handleResetPassword = async (e) => {
     e.preventDefault();
     if (!user.email) return setError("Write an email to reset password");
     try {
@@ -79,9 +83,9 @@ export function Login() {
   };
 */
 
-const handleResetPassword=async(e)=>{
-  navigate("/forgotpassword")
-}
+  const handleResetPassword = async (e) => {
+    navigate("/forgotpassword");
+  };
 
   const regresar = async (e) => {
     navigate("/");
@@ -112,6 +116,7 @@ const handleResetPassword=async(e)=>{
             <FontAwesomeIcon icon={faUser} className=""></FontAwesomeIcon>
             &nbsp;&nbsp;
             <input
+              required
               type="email"
               name="email"
               id="email"
@@ -130,6 +135,7 @@ const handleResetPassword=async(e)=>{
               <FontAwesomeIcon icon={faKey}></FontAwesomeIcon>
               &nbsp;&nbsp;
               <input
+                required
                 type="password"
                 name="password"
                 id="password"
@@ -138,53 +144,55 @@ const handleResetPassword=async(e)=>{
                 placeholder="*************"
               />
             </div>
-            <div className="flex items-center justify-between">
-              <Button
-                variant="dark"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px- 
+            <Button
+              variant="dark"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px- 
             rounded focus:outline-none focus:shadow-outline"
-                type="submit"
-              >
-                Login
-              </Button>
-              <a
-                className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                href="#!"
-                onClick={handleResetPassword}
-              >
-                Forgot Password?
-              </a>
-              <label>
-                <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
-              </label>
-            </div>
-            <p></p>
-            <center>
-              <button
-                onClick={handleGoogleSignin}
-                className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 "
-              >
-                <label className="">
-                  <FontAwesomeIcon icon={faEarthAmericas}></FontAwesomeIcon>
-                </label>
-                &nbsp; Sign in With Google
-              </button>
-              &nbsp; &nbsp;
-              <label>
-                <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
-              </label>
-            </center>
-            <p className="my-4 text-sm flex justify-between px-3">
-              Don't have an account?
-              <Link
-                to="/register"
-                className="text-blue-700 hover:text-blue-900"
-              >
-                Register
-              </Link>
-            </p>
+              type="submit"
+            >
+              Login
+            </Button>
+            &nbsp; &nbsp;
+            <a
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="#!"
+              onClick={handleResetPassword}
+            >
+              Forgot Password?
+            </a>
+            &nbsp; &nbsp;
+            <FontAwesomeIcon icon={faCircleExclamation}> </FontAwesomeIcon>
+            &nbsp;&nbsp;
+            <label>
+              <ContenedorBotones>
+                <Boton onClick={() => CambiarEstadoModal(!EstadoModal)}>
+                  Modal1 
+                </Boton>
+              </ContenedorBotones>
+            </label>
           </div>
         </form>
+        <center>
+          <button
+            onClick={handleGoogleSignin}
+            className="bg-slate-50 hover:bg-slate-200 text-black  shadow rounded border-2 border-gray-300 py-2 px-4 "
+          >
+            <label className="">
+              <FontAwesomeIcon icon={faEarthAmericas}></FontAwesomeIcon>
+            </label>
+            &nbsp; Sign in With Google
+          </button>
+          &nbsp; &nbsp;
+          <label>
+            <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
+          </label>
+        </center>
+        <p className="my-4 text-sm flex justify-between px-3">
+          Don't have an account?
+          <Link to="/register" className="text-blue-700 hover:text-blue-900">
+            Register
+          </Link>
+        </p>
         <center>
           <button
             className="btnatras bg-slate-50 hover:bg-blue-600 text-white  shadow rounded border-2 border-gray-300 py-2 px-4"
@@ -193,8 +201,64 @@ const handleResetPassword=async(e)=>{
             Regresar
           </button>
         </center>
-        <p></p>
       </div>
+      <Modal
+        estado={EstadoModal}
+        cambiarestado={CambiarEstadoModal}
+        mostrarheader={true}
+      >
+        <Contenido>
+          <p>Aqui puedes cambiar de contraseña en caso de olvidarla</p>
+          <Boton onClick={() => CambiarEstadoModal(!EstadoModal)}>
+            Aceptar
+          </Boton>
+        </Contenido>
+      </Modal>
+      <p></p>
     </div>
   );
 }
+
+const ContenedorBotones = styled.div`
+  padding: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const Boton = styled.button`
+  display: block;
+  padding: 5px 10px;
+  border-radius: 100px;
+  color: #fff;
+  border: none;
+  background: #1766dc;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  transition: 0.3s ease all;
+  &:hover {
+    background: #0066ff;
+  }
+`;
+
+const Contenido = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100%;
+    vertical-align: top;
+    border-radius: 3px;
+  }
+`;

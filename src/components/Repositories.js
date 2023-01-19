@@ -11,7 +11,9 @@ import Table from "react-bootstrap/Table";
 import "../css/Repositories.css";
 import "../css/App.css"
 
+
 export function Repositories() {
+  
   const { logout, user } = useAuth();
 
   console.log(user);
@@ -19,7 +21,11 @@ export function Repositories() {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    navigate("/login");
+    try {
+      await logout(navigate("/login"));
+    } catch (error) {
+      console.error(error.message);
+    }
   };
 
   return (
@@ -46,8 +52,8 @@ export function Repositories() {
               <div className="btnlogout"></div>
             </Container>
           </Navbar>
-          <div className="conteinerrepositories">
-            <div className="flex items-center justify-between">
+          <div className="conteinerrepositories ">
+            <div className="flex items-center justify-between ">
               <div className="mb-4">
                 <label className="block text-black-700 text-sm font-bold mb-2">
                   <center>
@@ -56,7 +62,7 @@ export function Repositories() {
                 </label>
                 <p></p>
                 <div className="flex items-center justify-between">
-                  <SearchBar />
+                  <SearchBar  />
                 </div>
                 <p></p>
                 <div className="flex items-center justify-between">
@@ -68,7 +74,8 @@ export function Repositories() {
                         <th>Actions</th>
                       </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                    </tbody>
                   </Table>
                 </div>
               </div>
