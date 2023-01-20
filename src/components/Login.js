@@ -16,15 +16,20 @@ import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import "../css/Login.css";
+//import styled from "styled-components";
+//import Modal from "../subcomponents/Modal";
+import Modal1 from "../subcomponents/Modal1";
+import Modal2 from "../subcomponents/Modal2";
 import styled from "styled-components";
-import Modal from "../subcomponents/Modal";
+import { Container } from "reactstrap";
+
 
 //Exportamos la funcion Login
 
 export function Login() {
   //Activamos una variable constante para obtener el email y el password para iniciar sesioon
 
-  const [EstadoModal, CambiarEstadoModal] = useState(false);
+ // const [EstadoModal, CambiarEstadoModal] = useState(false);
 
   const [user, setUser] = useState({
     email: "",
@@ -90,6 +95,10 @@ export function Login() {
   const regresar = async (e) => {
     navigate("/");
   };
+
+  //const mostrarmodalinsertar = async()=>{
+ //   this.setState({modalinsertar:true})
+ // }
 
   //Retorna las acciones de la funcion Login
   return (
@@ -161,15 +170,10 @@ export function Login() {
               Forgot Password?
             </a>
             &nbsp; &nbsp;
-            <FontAwesomeIcon icon={faCircleExclamation}> </FontAwesomeIcon>
+            
+          <Modal1></Modal1>
+        
             &nbsp;&nbsp;
-            <label>
-              <ContenedorBotones>
-                <Boton onClick={() => CambiarEstadoModal(!EstadoModal)}>
-                  Modal1 
-                </Boton>
-              </ContenedorBotones>
-            </label>
           </div>
         </form>
         <center>
@@ -183,9 +187,8 @@ export function Login() {
             &nbsp; Sign in With Google
           </button>
           &nbsp; &nbsp;
-          <label>
-            <FontAwesomeIcon icon={faCircleExclamation}></FontAwesomeIcon>
-          </label>
+          <Modal2></Modal2>
+          
         </center>
         <p className="my-4 text-sm flex justify-between px-3">
           Don't have an account?
@@ -202,31 +205,18 @@ export function Login() {
           </button>
         </center>
       </div>
-      <Modal
-        estado={EstadoModal}
-        cambiarestado={CambiarEstadoModal}
-        mostrarheader={true}
-      >
-        <Contenido>
-          <p>Aqui puedes cambiar de contraseña en caso de olvidarla</p>
-          <Boton onClick={() => CambiarEstadoModal(!EstadoModal)}>
-            Aceptar
-          </Boton>
-        </Contenido>
-      </Modal>
+
       <p></p>
     </div>
   );
 }
 
-const ContenedorBotones = styled.div`
-  padding: 40px;
+/*
+const Container = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
 `;
-
+*/
+/*
 const Boton = styled.button`
   display: block;
   padding: 5px 10px;
@@ -262,3 +252,4 @@ const Contenido = styled.div`
     border-radius: 3px;
   }
 `;
+*/

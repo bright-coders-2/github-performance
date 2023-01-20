@@ -1,7 +1,7 @@
 import React from "react";
+import TableRepos from "./TableRepos";
 
-
-const Results = (props) => {
+const Results = (props, children) => {
   const { repos } = props;
   console.log("Repos is: ", repos.data);
 
@@ -10,8 +10,9 @@ const Results = (props) => {
       repos.data.map((item) => (
         <li key={item.id}>
           <a href={item.html_url}>{item.name} </a>
-          <button className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Añadir</button>
-          
+          <button className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Añadir
+          </button>
         </li>
       ))
     ) : (

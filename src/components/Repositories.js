@@ -10,6 +10,7 @@ import SearchBar from "../subcomponents/SearchBar";
 import Table from "react-bootstrap/Table";
 import "../css/Repositories.css";
 import "../css/App.css"
+import TableRepos from "../subcomponents/TableRepos";
 
 
 export function Repositories() {
@@ -62,21 +63,10 @@ export function Repositories() {
                 </label>
                 <p></p>
                 <div className="flex items-center justify-between">
-                  <SearchBar  />
                 </div>
                 <p></p>
                 <div className="flex items-center justify-between">
-                  <Table striped bordered hover>
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                  </Table>
+                  <TableRepos></TableRepos>
                 </div>
               </div>
             </div>

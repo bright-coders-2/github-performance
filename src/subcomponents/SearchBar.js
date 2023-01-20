@@ -26,6 +26,7 @@ const SearchBar = () => {
     <>
       <div style={{ padding: "20px" }}>
         <input
+        name="buscador"
           type="text"
           placeholder="search"
           value={searchInput}
