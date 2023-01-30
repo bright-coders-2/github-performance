@@ -4,8 +4,8 @@
 
 
 .fondomenu{
-    width: 1000%;
-    min-height: 1000vh;
+    width: 100%;
+    min-height: 100vh;
     position:relative;
     padding: 0 20px;
     background-color: #282828;

@@ -8,11 +8,11 @@ import { useNavigate } from "react-router-dom";
 import evaluator from "../img/evaluator.jpg";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
-import "../css/Welcome.css";
-import "../css/App.css"
+import "../css/Welcome.css"; 
 
 //Exportamos la funcion Welcome
 export function Welcome() {
+
   //Biblioteca popular para realizar enrutamiento y navegación en una aplicación React Native
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ export function Welcome() {
 
   //Retorna las acciones de la funcion Welcome
   return (
-    <div className="hero">
+    <div className="fondowelcome">
       <Navbar>
         <h2>Welcome</h2>
         <Container></Container>
@@ -51,3 +51,6 @@ export function Welcome() {
     </div>
   );
 }
+
+
+//Vista Welcome Terminada

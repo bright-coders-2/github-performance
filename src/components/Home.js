@@ -37,7 +37,7 @@ export function Home() {
         <div className="flex items-center justify-between">
           <Navbar bg="light" variant="light">
             <Container>
-              <img src={r}></img>
+              <img src={r} alt=""></img>
               <h6>
                 Welcome : &nbsp; &nbsp;&nbsp; &nbsp;
                 <button
@@ -69,7 +69,7 @@ export function Home() {
               </label>
               <p></p>
               <div className="mb-4 flex items-center justify-between">
-                <img src={re}></img> &nbsp; &nbsp;
+                <img src={re} alt=""></img> &nbsp; &nbsp;
                 <label>Repositories</label> &nbsp; &nbsp;
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
@@ -79,7 +79,7 @@ export function Home() {
                 </button>
               </div>
               <div className=" items-center justify-between">
-                <img src={ref}></img>&nbsp; &nbsp;
+                <img src={ref} alt=""></img>&nbsp; &nbsp;
                 <label>Reports</label>&nbsp; &nbsp;
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

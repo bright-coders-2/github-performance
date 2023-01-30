@@ -1,5 +1,7 @@
+//import { faChurch } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import React, { useState } from "react";
+//import { Button } from "reactstrap";
 import Results from "./Results";
 
 const SearchBar = () => {
@@ -36,7 +38,7 @@ const SearchBar = () => {
         &nbsp; &nbsp;
         <button onClick={handleClick} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Search</button>
       </div>
-      <Results repos={repos} />
+      <Results repos={repos}></Results>
     </>
   );
 };

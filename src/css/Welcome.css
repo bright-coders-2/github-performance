@@ -3,14 +3,14 @@
 /*Proyecto de Residencia*/
 
 /*Para cambiar el color de fondo de la vista welcome*/
-.hero {
+.fondowelcome {
   width: 100%;
   min-height: 100vh;
   background-color: #0039a6;
 }
 
 /*Para cambiar el color del navbar*/
-.hero nav {
+.fondowelcome nav {
   background-color: #282828;
   width: 100%;
   padding: 20px 40px;
@@ -20,7 +20,7 @@
 }
 
 /*Para cambiar el color del texto Welcome*/
-.hero nav h2 {
+.fondowelcome nav h2 {
   color: whitesmoke;
 }
 

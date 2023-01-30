@@ -1,7 +1,7 @@
 import React from "react";
-import TableRepos from "./TableRepos";
+//import { Children } from "react";
 
-const Results = (props, children) => {
+const Results = (props) => {
   const { repos } = props;
   console.log("Repos is: ", repos.data);
 
@@ -10,13 +10,11 @@ const Results = (props, children) => {
       repos.data.map((item) => (
         <li key={item.id}>
           <a href={item.html_url}>{item.name} </a>
-          <button className="btnlogout text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-            Añadir
-          </button>
         </li>
       ))
     ) : (
       <li>No repos found</li>
+    
     );
 
   return <ul>{listRepos}</ul>;

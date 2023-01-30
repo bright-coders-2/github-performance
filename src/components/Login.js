@@ -13,30 +13,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faKey } from "@fortawesome/free-solid-svg-icons";
 import { faEarthAmericas } from "@fortawesome/free-solid-svg-icons";
-import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
-import "../css/Login.css";
-//import styled from "styled-components";
-//import Modal from "../subcomponents/Modal";
 import Modal1 from "../subcomponents/Modal1";
 import Modal2 from "../subcomponents/Modal2";
-import styled from "styled-components";
-import { Container } from "reactstrap";
-
+import "../css/Login.css";
 
 //Exportamos la funcion Login
-
 export function Login() {
   //Activamos una variable constante para obtener el email y el password para iniciar sesioon
-
- // const [EstadoModal, CambiarEstadoModal] = useState(false);
-
   const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
-  //Activamos variable constante para las acciones de login , login con google y resetear el password
+  //Activamos variable constante para las acciones de login y login con google
   const { login, loginWithGoogle } = useAuth();
 
   //Activamos variable constante para en caso de que nos marque error la aplicacion en alguna accion
@@ -74,36 +64,21 @@ export function Login() {
     }
   };
 
-  //Esta constante handleResetPassword nos permite hacer una funcion en la que en el caso de que el usuairio
-  //Olvidase su contrase , se restaure mediante el cambio de contraseña
-  /* const handleResetPassword = async (e) => {
-    e.preventDefault();
-    if (!user.email) return setError("Write an email to reset password");
-    try {
-      await resetPassword(user.email);
-      setError("We sent you an email. Check your inbox");
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-*/
-
+  //Esta constante handleResetPassword nos permite hacer una funcion asincrona en la que se navega por
+  //el forgotpassword para el cambio de contraseña de un correo registrado
   const handleResetPassword = async (e) => {
     navigate("/forgotpassword");
   };
 
+  //Esta constante nos permite regresar a la vista anterior de la vista de login
   const regresar = async (e) => {
     navigate("/");
   };
 
-  //const mostrarmodalinsertar = async()=>{
- //   this.setState({modalinsertar:true})
- // }
-
   //Retorna las acciones de la funcion Login
   return (
-    <div className="f">
-      <div className="l">
+    <div className="fondologin">
+      <div className="formatologin">
         {error && <Alert message={error} />}
         <form
           onSubmit={handleSubmit}
@@ -170,9 +145,7 @@ export function Login() {
               Forgot Password?
             </a>
             &nbsp; &nbsp;
-            
-          <Modal1></Modal1>
-        
+            <Modal1></Modal1>
             &nbsp;&nbsp;
           </div>
         </form>
@@ -188,7 +161,6 @@ export function Login() {
           </button>
           &nbsp; &nbsp;
           <Modal2></Modal2>
-          
         </center>
         <p className="my-4 text-sm flex justify-between px-3">
           Don't have an account?
@@ -198,58 +170,17 @@ export function Login() {
         </p>
         <center>
           <button
-            className="btnatras bg-slate-50 hover:bg-blue-600 text-white  shadow rounded border-2 border-gray-300 py-2 px-4"
+            className="botonatras bg-slate-50 hover:bg-blue-600 text-white  shadow rounded border-2 border-gray-300 py-2 px-4"
             onClick={regresar}
           >
             Regresar
           </button>
         </center>
+        <p></p>
+        <p></p>
       </div>
-
-      <p></p>
     </div>
   );
 }
 
-/*
-const Container = styled.div`
-  display: flex;
-`;
-*/
-/*
-const Boton = styled.button`
-  display: block;
-  padding: 5px 10px;
-  border-radius: 100px;
-  color: #fff;
-  border: none;
-  background: #1766dc;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  transition: 0.3s ease all;
-  &:hover {
-    background: #0066ff;
-  }
-`;
-
-const Contenido = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  img {
-    width: 100%;
-    vertical-align: top;
-    border-radius: 3px;
-  }
-`;
-*/
+//Vista Login Terminada

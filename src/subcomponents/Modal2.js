@@ -1,16 +1,16 @@
 import "../css/Modal2.css"
-import React, { Component } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  Table,
+  //Table,
   Button,
-  Container,
+  //Container,
   Modal,
   ModalBody,
   ModalHeader,
   FormGroup,
   ModalFooter,
-  ButtonDropdown,
+  //ButtonDropdown,
 } from "reactstrap";
 
 class Modal2 extends React.Component {

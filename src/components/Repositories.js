@@ -6,12 +6,11 @@ import Navbar from "react-bootstrap/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleStop } from "@fortawesome/free-solid-svg-icons";
 import r from "../img/user.png";
-import SearchBar from "../subcomponents/SearchBar";
-import Table from "react-bootstrap/Table";
+//import SearchBar from "../subcomponents/SearchBar";
+//import Table from "react-bootstrap/Table";
 import "../css/Repositories.css";
-import "../css/App.css"
-import TableRepos from "../subcomponents/TableRepos";
-
+//import "../css/App.css"
+import TableRepos1 from "../subcomponents/TableRepos1";
 
 export function Repositories() {
   
@@ -35,7 +34,7 @@ export function Repositories() {
         <div className="flex items-center justify-between">
           <Navbar bg="light" variant="light">
             <Container>
-              <img src={r}></img>
+              <img src={r} alt=""></img>
               <h6>
                 Welcome : &nbsp; &nbsp;&nbsp; &nbsp;
                 <button
@@ -58,15 +57,14 @@ export function Repositories() {
               <div className="mb-4">
                 <label className="block text-black-700 text-sm font-bold mb-2">
                   <center>
-                    <h2>Repo Search</h2>
+                    <h2>Github Repository Browser</h2>
                   </center>
                 </label>
-                <p></p>
                 <div className="flex items-center justify-between">
                 </div>
                 <p></p>
                 <div className="flex items-center justify-between">
-                  <TableRepos></TableRepos>
+                  <TableRepos1></TableRepos1>
                 </div>
               </div>
             </div>

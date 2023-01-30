@@ -2,23 +2,23 @@
 /*Maria Guadalupe Cedeño Llanos 17460080*/
 /*Proyecto de Residencia*/
 
+/*Para cambiar el color del fondo y su estructura */
+.fondologin{
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 20px;
+  background-color: #282828;
+  display: flex;
+}
+
 /*Para cambiar el color del  y su estructura */
-.l{
+.formatologin{
     margin: auto;
     padding: auto;
     background-color: #ffeb00;
   }
   
-/*Para cambiar el color del fondo y su estructura */
-  .f{
-    width: 150%;
-    min-height: 150vh;
-    padding: 0 20px;
-    background-color: #282828;
-    display: flex;
-  }
-
-  .btnatras{
+  .botonatras{
     background: #0039a6;
     background-color: #0039a6;
     color: white;

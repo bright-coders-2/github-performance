@@ -10,10 +10,11 @@ import r from "../img/user.png";
 //import Table from "react-bootstrap/Table";
 import "../css/Repositories.css";
 //import "../css/App.css"
-import ConsultReports from "../subcomponents/ConsultReports";
-import Reportspart1 from "../subcomponents/Reportspart1";
+import TableRepos1 from "../subcomponents/TableRepos1";
+import p from "../img/profile.ico"
 
-export function Reports() {
+export function Repositories() {
+  
   const { logout, user } = useAuth();
 
   console.log(user);
@@ -52,19 +53,22 @@ export function Reports() {
               <div className="btnlogout"></div>
             </Container>
           </Navbar>
-          <div className="conteinerrepositories">
-            <div className="flex items-center justify-between">
+          <div className="conteinerrepositories ">
+            <div className="flex items-center justify-between ">
               <div className="mb-4">
                 <label className="block text-black-700 text-sm font-bold mb-2">
                   <center>
-                    <h2>Github Users</h2>
+                    <h2>Select the way to get the reports</h2>
                   </center>
                 </label>
-                <p></p>
                 <div className="flex items-center justify-between">
-                  <Reportspart1></Reportspart1>
+                    <h3>Reportes de manera individual</h3>
+                    <img src={p}></img>
                 </div>
                 <p></p>
+                <div className="flex items-center justify-between">
+                    <h3>Reportes de manera grupal</h3>
+                </div>
               </div>
             </div>
           </div>

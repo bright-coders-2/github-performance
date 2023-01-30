@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Alert } from "./Alert";
 import "../css/Register.css";
-import "../css/App.css";
+//import "../css/App.css";
 
 export function Register() {
+  const passwordRef = useRef()
+  const passwordConfirmRef = useRef()
   const { signup } = useAuth();
   const [user, setUser] = useState({
+    firsname:"",
+    lastname:"",
+    username:"",
+    password:"",
+    conffirmpassword:"",
     email: "",
-    password: "",
   });
 
   const [error, setError] = useState("");
@@ -20,8 +26,12 @@ export function Register() {
     e.preventDefault();
     setError("");
     try {
-      await signup(user.email, user.password);
+      if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+        return setError('Las contraseñas no son iguales')
+      }else{
+      await signup(user.firstname,user.lastname,user.username,user.password,user.conffirmpassword,user.email);
       navigate("/login");
+      }
     } catch (error) {
       setError(error.message);
     }
@@ -37,7 +47,7 @@ export function Register() {
         >
           <div className="mb-4">
             <label
-              htmlFor="Firstname"
+              htmlFor="firstname"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
               FirstName
@@ -45,13 +55,13 @@ export function Register() {
             <input
               required
               type="firstname"
-              onChange={(e) => setUser({ ...user, firstname: e.target.value })}
+              onChange={(e) => setUser({ ...user, firsname: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
           </div>
           <div className="mb-4">
             <label
-              htmlFor="LastName"
+              htmlFor="lastname"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
               LastName
@@ -88,6 +98,7 @@ export function Register() {
               required
               maxlength="8"
               type="password"
+              ref={passwordRef}
               onChange={(e) => setUser({ ...user, password: e.target.value })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="********"
@@ -103,9 +114,10 @@ export function Register() {
             <input
               required
               maxlength="8"
-              type="password"
+              type="conffirmpassword"
+              ref={passwordConfirmRef}
               onChange={(e) =>
-                setUser({ ...user, confirmpassword: e.target.value })
+                setUser({ ...user, conffirmpassword: e.target.value })
               }
               className="shadow appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               placeholder="********"

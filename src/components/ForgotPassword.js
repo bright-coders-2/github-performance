@@ -22,6 +22,7 @@ export function ForgotPassword() {
       setLoading(true);
       await resetPassword(emailRef.current.value);
       setMessage("Checa tu bandeja de entrada y sigue las instrucciones");
+      console.log(message)
     } catch {
       setError("Fallo al restaurar tu password");
     }

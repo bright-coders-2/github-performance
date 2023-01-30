@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const signup = (email, password) => {
+  const signup = (firstname,lastname,username,password,conffirmpassword,email) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 

@@ -1,25 +1,23 @@
-// We make the necessary imports of the SDKs for the project
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-
+import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-// We make the configurations with the firabase keys
 const firebaseConfig = {
-  apiKey: "AIzaSyAk1aEInoB-JMJuXLnA7w-VaTtlvcz-uK4",
-  authDomain: "github-performance-db2a8.firebaseapp.com",
-  projectId: "github-performance-db2a8",
-  storageBucket: "github-performance-db2a8.appspot.com",
-  messagingSenderId: "226763484288",
-  appId: "1:226763484288:web:4fad4c1b037f7245e78a65",
-  measurementId: "G-DX9B6K9QZZ",
+  apiKey: "AIzaSyBDNTlGPXwQT91LLkZXcv2Dg3PZEDiuPok",
+  authDomain: "github-performance-719cd.firebaseapp.com",
+  projectId: "github-performance-719cd",
+  storageBucket: "github-performance-719cd.appspot.com",
+  messagingSenderId: "861190177807",
+  appId: "1:861190177807:web:b16066b44980bf2f294f7a",
+  measurementId: "G-GYSWZPKG13"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 export const auth = getAuth(app);
-export const analytics = getAnalytics(app);
